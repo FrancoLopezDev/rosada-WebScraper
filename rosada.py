@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 # General Stuff about the website
-path = '/Users/admin/desktop/projects/rosada/chromedriver'
+path = '/path/to/directory/chromedriver'
 options = Options()
 options.headless = True
 options.add_argument("--window-size=1920,1200")
