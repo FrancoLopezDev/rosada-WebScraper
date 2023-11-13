@@ -1,14 +1,14 @@
 # Rosada Webscraper
 
-## This is just a placeholder!! Do not follow the steps in this guide!
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+This is a web-scraper I built for a PhD candidate during my sophomore year of college to help him gather data for his graduate thesis. The program was written in Python, and uses [Selenium](https://www.selenium.dev/) to automate the selection of drop down menus, click on links, and then scrape data from the website to write to a CSV file. 
 
-This is a text bot for imessage that was inspired by South Park's 'Deep Learning' episode. The program was made to continuously run so that it is constantly checking whether or not it needs to respond to a text message. If the specified number texts you, it will automatically feed the text message into OpenAI's ChatGPT API and come up with a response to the text. This text will then be sent to the phone number you specified. 
+Website: http://siops.datasus.gov.br/filtro_rel_ges_covid_municipal.php
 
-There are options to configure this program such as removing the 'Approval' required before sending automatically sending responses. I added many comments throughout the code in case you are curious about what is going on. Also, in the comments I make note of some changes in functionality you can make.
+I named the project "Rosada" after [Rosey](https://thejetsons.fandom.com/wiki/Rosey) the robot in *The Jetsons*. In the TV show, Rosey helps the family by doing monotonous chores such as cleaning. This bot was my attempt to help the PhD student and his undergraduate assistants save a bunch of time gathering all of the data by hand. 
 
-This project is still heavily under development, so expect there to be updates and changes in the coming days.
+This was one of the first "real" projects I had ever done, so the code looks pretty terrible. However, it got the job done. Because I am not expecting anyone else to ever use/need the code, I've decided to stop development for now. Maybe one day in the future I'll come back and clean it up. 
 
 If you like my work please consider donating:
 
@@ -22,49 +22,54 @@ These are some basic instructions to help you get started.
 
 What you need to install:
 
-* [imessage-reader](https://pypi.org/project/imessage-reader/) - python lib for working with imessage
-* [OpenAI API](https://auth0.openai.com/u/signup/identifier?state=hKFo2SBDdGt4b2tMS2VHRzU4SXhNd1lZZHJxR0xsS0F5Wk53QqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIE56aWJ3cWJ1NEZLb05HSHdoMnpBZzk5SVAwcGs4b2ZJo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q) - ChatGPT API
+*  [Selenium](https://www.selenium.dev/) - Tool for automating web applications
+* [ChromeDriver](https://chromedriver.chromium.org/getting-started) - Allow automation through Chrome Desktop
 
-Follow this [link](https://www.alfredapp.com/help/troubleshooting/indexing/terminal-full-disk-access/) to enable full disk access for Terminal. This allows the program to access your chat.db in order to read and respond to text messages.
+The ChromeDriver is an executable file that is downloaded to your local machine. 
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of examples that tell you how to get everything running
 
-Install OpenAI API (After Obtaining an API key from the website)
+Install selenium
 
+```html
+pip install selenium
 ```
-pip install openai
+
+Set the path to the ChromeDriver (example)
+
+```python
+path = '/Users/admin/desktop/rosada/chromedriver'
 ```
 
-Install imessage-reader
+Change the permissions for ChromeDriver (change with the correct path)
 
-```
-pip install imessage-reader
+```html
+chmod +x /Users/admin/desktop/rosada/chromedriver
 ```
 
 ### Usage
-
-Before using the program, open the file 'config.py' and paste your OpenAI API key on the designated location (This never changes). Then paste the phone number you want to text with at the designated location (This you may change often depending on who you want to text). You also need to specify the path to the send_iMessage.scpt file that was downloaded (This is most likely located in the same directory as the other files you downloaded). For Example: script_path = "/Users/name/Desktop/text-bot-GPT/send_iMessage.scpt"
 
 To run the program simply open your Terminal and go to the directory in which the files are located.
 
 Then run:
 
+```html
+python3 rosada.py
 ```
-python3 text-bot-GPT.py
-```
-This starts the program using your provided configuration. The program will say 'waiting' if you were the last to text in a conversation. Otherwise it will print out a person's text, print out ChatGPT's response, and await your approval before sending.
+
+This starts the program. For every 1000 pieces of data collected, the program will output that current number to the terminal. Press Ctrl + C at any time to terminate the program. If the program is left to run, then it will print "I'm all done!" when it completes
 
 ## Built With
 
-* [imessage-reader](https://pypi.org/project/imessage-reader/) - python lib for working with imessage
-* [OpenAI API](https://auth0.openai.com/u/signup/identifier?state=hKFo2SBDdGt4b2tMS2VHRzU4SXhNd1lZZHJxR0xsS0F5Wk53QqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIE56aWJ3cWJ1NEZLb05HSHdoMnpBZzk5SVAwcGs4b2ZJo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q) - ChatGPT API
-* [AppleScript](https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html) - Used for sending iMessages
+*  [Selenium](https://www.selenium.dev/) - Tool for automating web applications
+* [ChromeDriver](https://chromedriver.chromium.org/getting-started) - Allow automation through Chrome Desktop
+* [Python](https://www.python.org/) - Language of the gods
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/seaborg1/text-bot-GPT/blob/main/CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests to us. Follow the general guidelines outlined in the link. 
+Please read [CONTRIBUTING.md](https://github.com/seaborg1/rosada-WebScraper/blob/main/CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests to us. Follow the general guidelines outlined in the link. 
 
 ## Author
 
@@ -72,11 +77,11 @@ Please read [CONTRIBUTING.md](https://github.com/seaborg1/text-bot-GPT/blob/main
 
 ## License
 
-This project is licensed under the GNU v.3 General Public License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/seaborg1/rosada-WebScraper/blob/main/LICENSE.md) file for details
 
 ## Acknowledgments
 
-* Shoutout to [niffitycode](https://pypi.org/user/niftycode/) - Author of imessage-reader
-* [OpenAI](https://openai.com/)
-* [South Park](https://southpark.cc.com/episodes/8byci4/south-park-deep-learning-season-26-ep-4) - For the inspiration
+- The PhD student writing a graduate thesis
+	- Once his research is published I'll post a link to it here
+- [ThoughtWorks](https://www.thoughtworks.com/en-us) - For putting together the awesome [Selenium](https://www.selenium.dev/history/) software
 * Shoutout to [PurpleBooth](https://gist.github.com/PurpleBooth) - for putting this README template together
